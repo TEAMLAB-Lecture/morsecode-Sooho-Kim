@@ -89,10 +89,10 @@ def is_validated_english_sentence(user_input):
     sign = '_@#$%^&*()-+=[]{}"'+"';:\|`~"
     sign2 = '.,!?'
     cleaned = ''
+    if user_input.split() == []:
+        return False
     for i in user_input:
-        if i.isdigit():
-            return False
-        elif i in sign:
+        if i.isdigit() or (i in sign):
             return False
         elif i in sign2:
             continue
@@ -130,6 +130,8 @@ def is_validated_morse_code(user_input):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당 또는 필요에 따라 자유로운 수정
     result = True
+    if user_input == '' or user_input.split() == []:
+        return False
     for i in user_input:
         if i not in ['-','.',' ']:
             result = False
@@ -298,7 +300,7 @@ def main():
         if choice == '0':
             break
         elif is_help_command(choice):
-            get_help_message()
+            print(get_help_message())
         elif (is_validated_morse_code(choice) or is_validated_english_sentence(choice)):
             if is_validated_morse_code(choice):
                 print(decoding_sentence(choice))
