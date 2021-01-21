@@ -13,7 +13,6 @@ class TestMorseCode(unittest.TestCase):
         self.assertTrue(mc.is_help_command("h"))
         self.assertTrue(mc.is_help_command("Help"))
         self.assertTrue(mc.is_help_command("heLp"))
-
         self.assertFalse(mc.is_help_command("xxx"))
         self.assertFalse(mc.is_help_command("gelp"))
 

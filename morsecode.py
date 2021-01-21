@@ -226,6 +226,8 @@ def encoding_character(english_character):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당 또는 필요에 따라 자유로운 수정
     morse_code_dict = get_morse_code_dict()
+    if english_character == ' ':
+        return ' '
     result = morse_code_dict[english_character.upper()]
     return result
     # ==================================
@@ -253,10 +255,11 @@ def decoding_sentence(morse_sentence):
     result = ''
     morse_sentence_list = morse_sentence.split(' ')
     for i in morse_sentence_list:
-        if i == '':
+        if i == ' ':
             result += ' '
         else :
             result += decoding_character(i)
+            result += ' '
     return result
     # ==================================
 
@@ -283,11 +286,13 @@ def encoding_sentence(english_sentence):
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당 또는 필요에 따라 자유로운 수정
     result = ''
     cleaned_sentence = get_cleaned_english_sentence(english_sentence)
+    cleaned_sentence = ' '.join(cleaned_sentence.split())
     for i in cleaned_sentence:
         if i == '':
             result += ' '
         else:
-            result += encoding_character(i) 
+            result += encoding_character(i)
+            result += ' '
     return result
     # ==================================
 
