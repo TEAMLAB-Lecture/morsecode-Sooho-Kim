@@ -255,11 +255,10 @@ def decoding_sentence(morse_sentence):
     result = ''
     morse_sentence_list = morse_sentence.split(' ')
     for i in morse_sentence_list:
-        if i == ' ':
-            result += ' '
+        if i == '':
+            result += ''
         else :
             result += decoding_character(i)
-            result += ' '
     return result
     # ==================================
 
