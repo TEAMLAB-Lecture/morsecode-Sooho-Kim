@@ -287,7 +287,7 @@ def encoding_sentence(english_sentence):
     cleaned_sentence = get_cleaned_english_sentence(english_sentence)
     cleaned_sentence = ' '.join(cleaned_sentence.split())
     for i in cleaned_sentence:
-        if i == '':
+        if i == ' ':
             result += ' '
         else:
             result += encoding_character(i)
