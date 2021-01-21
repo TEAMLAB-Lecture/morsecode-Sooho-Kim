@@ -132,8 +132,10 @@ def is_validated_morse_code(user_input):
     result = True
     if user_input == '' or user_input.split() == []:
         return False
+    user_input = user_input.split()
+    morce_code = get_morse_code_dict()
     for i in user_input:
-        if i not in ['-','.',' ']:
+        if i not in morce_code.values():
             result = False
             return result
     return result
