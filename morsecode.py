@@ -37,8 +37,9 @@ def is_help_command(user_input):
 
 
 def is_validated_english_sentence(user_input):
+    # isalnum 적용해보기
     result = True
-    sign = '_@#$%^&*()-+=[]{"}'+"';:\|`~"
+    sign = '_@#$%^&*()-+=[]{\"}\';:\\|`~' # 코드에 작용하는 기호는 백스페이스 넣기
     sign2 = '.,!?'
     cleaned = ''
     if user_input.split() == []:
@@ -87,7 +88,6 @@ def decoding_character(morse_character):
     for i in morse_code_dict.keys():
         if morse_code_dict[i] == morse_character:
             result = i
-
     return result
     # ==================================
 
@@ -106,7 +106,7 @@ def decoding_sentence(morse_sentence):
     morse_sentence_list = morse_sentence.split(' ')
     for i in morse_sentence_list:
         if i == '':
-            result += ''
+            result += ' '
         else :
             result += decoding_character(i)
     return result
@@ -143,7 +143,7 @@ def main():
                 english_sentence = get_cleaned_english_sentence(choice)
                 print(encoding_sentence(english_sentence))
         else:
-            print('Wrong Input')     
+            print('Wrong Input')
     # ==================================
     print("Good Bye")
     print("Morse Code Program Finished!!")
